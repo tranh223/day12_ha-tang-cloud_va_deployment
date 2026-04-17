@@ -1,4 +1,4 @@
-# ============================================================
+# ===============================================Dockerfile=============
 # BASIC Dockerfile — Single-stage, dễ đọc, dễ hiểu
 # Dùng làm điểm khởi đầu trước khi học multi-stage
 # ============================================================
@@ -14,7 +14,9 @@ WORKDIR /app
 COPY 02-docker/develop/requirements.txt .
 
 # Bước 4: Cài dependencies
+RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
+
 
 # Bước 5: Copy code vào container
 COPY 02-docker/develop/app.py .
@@ -32,7 +34,7 @@ CMD ["python", "app.py"]
 # ============================================================
 # Để build và chạy:
 #   cd ../../  # Go to project root
-#   docker build -f 02-docker/develop/Dockerfile -t agent-develop .
+#   docker build -f 02-docker/develop/ -t agent-develop .
 #   docker run -p 8000:8000 agent-develop
 #   curl http://localhost:8000/health
 # ============================================================
