@@ -2,8 +2,8 @@
 
 ## Thông Tin Sinh Viên
 
-- **Họ và tên:** Nguyễn Thị Tuyết  
-- **Mã sinh viên:** 2A202600215  
+- **Họ và tên:** Trinh Duc Anh 
+- **Mã sinh viên:** 2A202600499
 - **Ngày lập báo cáo:** 17/04/2026
 
 ---
@@ -58,7 +58,7 @@
 - [x] Đã tạo file `DEPLOYMENT.md` với hướng dẫn deploy
 - [x] Có cấu hình deploy: `railway.toml` và `render.yaml`
 - [x] Đã deploy thành công lên Railway
-- [x] **URL:** `https://lab12nguyenthituyet2a202600215-production.up.railway.app`
+
 
 
 ---
