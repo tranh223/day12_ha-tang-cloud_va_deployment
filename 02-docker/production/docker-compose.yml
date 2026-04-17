@@ -21,8 +21,8 @@ services:
   # ──────────────────────────────────────
   agent:
     build:
-      context: ../..
-      dockerfile: 02-docker/production/Dockerfile
+      context: .
+      dockerfile: Dockerfile
       target: runtime          # chỉ build stage "runtime", không build "builder"
     environment:
       - ENVIRONMENT=staging
@@ -32,12 +32,12 @@ services:
       # ❌ KHÔNG đặt secrets trực tiếp ở đây trong production
       # ✅ Dùng: docker secret hoặc env file ngoài git
     env_file:
-      - .env              # secrets riêng, trong .gitignore
-    # depends_on:
-    #   redis:
-    #     condition: service_healthy
-    #   qdrant:
-    #     condition: service_healthy
+      - .env.local              # secrets riêng, trong .gitignore
+    depends_on:
+      redis:
+        condition: service_healthy
+      qdrant:
+        condition: service_healthy
     healthcheck:
       test: ["CMD", "python", "-c",
              "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]

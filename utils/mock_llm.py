@@ -15,11 +15,6 @@ MOCK_RESPONSES = {
     "docker": ["Container là cách đóng gói app để chạy ở mọi nơi. Build once, run anywhere!"],
     "deploy": ["Deployment là quá trình đưa code từ máy bạn lên server để người khác dùng được."],
     "health": ["Agent đang hoạt động bình thường. All systems operational."],
-    # Lab 11: Banking responses
-    "transfer": ["Tôi có thể giúp bạn chuyển tiền. Vui lòng cung cấp số tài khoản người nhận và số tiền."],
-    "balance": ["Số dư tài khoản của bạn hiện tại là... Bạn có muốn xem chi tiết không?"],
-    "loan": ["Chúng tôi cung cấp nhiều loại vay. Bạn có thể cho biết mục đích vay và số tiền mong muốn?"],
-    "account": ["Tôi có thể giúp bạn với các vấn đề về tài khoản. Bạn cần hỗ trợ gì?"],
 }
 
 
@@ -35,3 +30,14 @@ def ask(question: str, delay: float = 0.1) -> str:
             return random.choice(responses)
 
     return random.choice(MOCK_RESPONSES["default"])
+
+
+def ask_stream(question: str):
+    """
+    Mock streaming response — yield từng token.
+    """
+    response = ask(question)
+    words = response.split()
+    for word in words:
+        time.sleep(0.05)
+        yield word + " "

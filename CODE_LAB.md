@@ -276,7 +276,7 @@ Test:
 ```bash
 # Health check
 curl http://student-agent-domain/health
-  
+
 # Agent endpoint
 curl http://studen-agent-domain/ask -X POST \
   -H "Content-Type: application/json" \
